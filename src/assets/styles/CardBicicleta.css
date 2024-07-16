@@ -1,0 +1,25 @@
+.card-bicicleta {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    align-items: flex-start;
+}
+
+.card-bicicleta img {
+    width: 280px;
+    border-radius: 3px;
+}
+
+.card-bicicleta .modelo {
+    color: #2c2c2c;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.card-bicicleta .preco {
+    color: #595959;
+    font-weight: 300;
+}
+.bikes {
+    display: flex;
+}

@@ -1,0 +1,46 @@
+.footer {
+    display: flex;
+    background-color: black;
+    padding: 60px;
+    justify-content: space-between;
+    width: 100vw;
+}
+.contato {
+    display: flex;
+    flex-direction: column;
+    color: #9c9c9c;
+    align-items: flex-start;
+
+}
+p {
+    text-align: left;
+}
+.info {
+    display: flex;
+    flex-direction: column;
+    color: #9c9c9c;
+    align-items: flex-start;
+    
+}
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;    
+}
+.footer-redes {
+    display: flex;
+    gap: 40px;
+}
+.footer-end {
+    width: 100vw;
+    background-color: black;
+    color: #9c9c9c;
+    margin: 0;
+    padding: 30px;
+}
+h2 {
+    color: white;
+}
