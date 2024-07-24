@@ -1,47 +1,46 @@
+import { Routes, Route, BrowserRouter as Router, Navigate } from 'react-router-dom'
 import './App.css'
-import Footer from './components/Footer'
-import Header from './components/Header'
-import CardBicicleta from './components/CardBicicleta'
-import Contato from './components/Contato'
+import Signin from './pages/Signin/Signin'
+import Signup from './pages/Signup/Signup'
+import Home from './pages/Home/Home'
+import Bicicletas from './pages/Bicicletas/Bicicletas'
 
 function App() {
 
-  const bicicletas = [
-    {
-      id: 0, nomeModelo: 'Magic Might', preco: 2499,
-      imgSrc: 'https://www.origamid.com/projetos/bikcraft/img/bicicletas/magic-home.jpg',            
-    },
-    {
-      id: 1, nomeModelo: 'Nimbus Stark', preco: 4999,
-      imgSrc: 'https://www.origamid.com/projetos/bikcraft/img/bicicletas/nimbus-home.jpg',            
-    },
-    {
-      id: 2, nomeModelo: 'Nebula Cosmic', preco: 3999,
-      imgSrc: 'https://www.origamid.com/projetos/bikcraft/img/bicicletas/nebula-home.jpg',      
+  const isAuthenticated = true
+  
+  function loginRedirect(componente) {
+    if (isAuthenticated) {
+      return <Navigate to='/' replace />
     }
-  ]
+
+    return componente
+  }
 
   return (
-    <div className="container">
-      <Header></Header>  
+    <>
+      <Router>
+        <Routes>
+          <Route path='/login' element={loginRedirect(<Signin />)} />
+          <Route path='/cadastro' element={loginRedirect(<Signup />)} />          
 
-      <div className="bikes">    
 
-      {bicicletas.map(bike =>
-        <CardBicicleta 
-          key={bike.id} 
-          imgSrc={bike.imgSrc} 
-          preco={bike.preco} 
-          nomeModelo={bike.nomeModelo}/>
-      )}
-
-      </div>
-
-      <Contato></Contato>
-
-      <Footer></Footer>      
-    </div>
+          {isAuthenticated ?
+            (
+              <>
+                <Route path='/' Component={Home} />
+                <Route path='/bicicletas' Component={Bicicletas} />
+              </>
+            )
+            : (
+              <>
+                <Route path='*' element={<Navigate replace to='/login' />} />
+              </>              
+            )
+          }
+        </Routes>
+      </Router>
+    </>
   )
 }
-
 export default App
