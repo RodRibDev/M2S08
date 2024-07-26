@@ -19,15 +19,17 @@ function App() {
         <>
         <Router>
             <Routes>
-                <Route path='/login' element={loginRedirect(<Signin />)} />
-                <Route path='/cadastro' element={loginRedirect(<Signin />)} />
+                {/* <Route path='/login' element={loginRedirect(<Signin />)} /> */}
+                {/* <Route path='/cadastro' element={loginRedirect(<Signin />)} /> */}
+                <Route path='/home' Component={Home} />
+                <Route path='/login' element={(<Signin />)} />
 
                 {/* {condicao ? seVerdade : falso} */}
                 {isAuthenticated ?
                     (
                         <>
                             <Route path='/' Component={Home} />
-                            <Route path='/home' Component={Home} />
+                            
                             
                         </>
                     )
