@@ -1,11 +1,16 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom"
+import './Sidebar.css'
 
 function Sidebar() {
     return (
-        <>
-            <h1>Empresa XYZ</h1>
-            <Link to='/'>Home</Link>            
-        </>
+        <> 
+            <div className="sidebar">
+                <h4>Empresa XYZ</h4>
+                <legend>MENU</legend>
+                <Link to='/home'>Overview</Link>
+                <Link to='/bicicletas'>Bicicletas</Link>
+            </div>       
+        </>        
     )
 }
 
