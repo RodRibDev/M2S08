@@ -1,31 +1,45 @@
-import { BrowserRouter as Router } from 'react-router-dom'
-import Sidebar from "./components/Sidebar/Sidebar"
-import Header from "./components/Header/Header"
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import './App.css'
-import RoutesComponent from './routes/Routes'
+import Signin from './pages/Login/Login'
+import Home from './pages/Home/Home'
+
 
 function App() {
 
   const isAuthenticated = true
-  {/* Estrutura de tela quando está autenticado */}
-  return (
-    <>
-      <Router>
-        {isAuthenticated ? 
-        (
-          
-          <div className='grid-container'>
-            <Header />
-            <Sidebar />
+    function loginRedirect(component) {
+        if (isAuthenticated) {
+            return <Navigate to='/home' replace />
+        }
 
-            <RoutesComponent />
-          </div>
-        ) 
-        : (
-          <RoutesComponent />
-        )}
-      </Router>  
-    </>
+        return component
+    }
+
+    return (
+        <>
+        <Router>
+            <Routes>
+                <Route path='/login' element={loginRedirect(<Signin />)} />
+                <Route path='/cadastro' element={loginRedirect(<Signin />)} />
+
+                {/* {condicao ? seVerdade : falso} */}
+                {isAuthenticated ?
+                    (
+                        <>
+                            <Route path='/' Component={Home} />
+                            <Route path='/home' Component={Home} />
+                            
+                        </>
+                    )
+                    : (
+                        <>
+                            <Route path='*' element={<Navigate replace to='/login' />} />
+                        </>
+                    )
+                }
+            </Routes>
+        </Router>
+        </>
   )
 }
 export default App

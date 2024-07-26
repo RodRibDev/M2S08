@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom"
-import Sidebar from "../../components/Sidebar/Sidebar"
+import Hero from "../../components/Hero/Hero"
+import Header from "../../components/Header/Header"
+
 
 function Home() {
     return (
         <>
-            <h1>Home</h1>
-            <Link to="/bicicletas">Bicicletas</Link>
-            <Sidebar></Sidebar>
+        <Header></Header>
+        <Hero></Hero>
         </>
     )
 }

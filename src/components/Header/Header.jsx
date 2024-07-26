@@ -3,7 +3,7 @@ function Header() {
     return (
         <>
             <div className="header">
-                <span>LAB365</span>
+                <span>HEADER</span>
             </div>
         </>
     )
