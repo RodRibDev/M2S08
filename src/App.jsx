@@ -22,7 +22,7 @@ function App() {
                 {/* <Route path='/login' element={loginRedirect(<Signin />)} /> */}
                 {/* <Route path='/cadastro' element={loginRedirect(<Signin />)} /> */}
                 <Route path='/home' Component={Home} />
-                <Route path='/login' element={(<Signin />)} />
+                <Route path='/signin' element={(<Signin />)} />
 
                 {/* {condicao ? seVerdade : falso} */}
                 {isAuthenticated ?
