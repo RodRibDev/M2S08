@@ -12,7 +12,7 @@
     position: relative;
 }
 
-img {
+.imgProduto {
     position: absolute;
     height: 70px;
     bottom: 0;

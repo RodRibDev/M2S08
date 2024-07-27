@@ -4,7 +4,7 @@ function CategoriaProduto({ texto, imagem }) {
         <>
             <div className="card-categoria">
                 <div className="card-categoria__bg">
-                    <img src={imagem}/>
+                    <img className='imgProduto' src={imagem}/>
                 </div>                
                 <span>{texto}</span>
             </div>
