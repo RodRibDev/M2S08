@@ -12,7 +12,6 @@ function Signin() {
     function handleSubmit(e) {
         e.preventDefault();
         if (email === 'admin@admin.com' && senha === 'admin123') {
-            // redireciona para a home
             navigate('/home');
             return;
         }
