@@ -1,0 +1,7 @@
+.lista-categorias {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    max-width: 80%;
+    margin: 0 auto; 
+    justify-content: center;
+}
