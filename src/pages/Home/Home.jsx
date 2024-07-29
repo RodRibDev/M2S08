@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Hero from "../../components/Hero/Hero"
 import Header from "../../components/Header/Header"
 import CategoriaProduto from "../../components/CategoriaProduto/CategoriaProduto"
@@ -77,10 +78,40 @@ const CATEGORIAS = [
 ]
 
 function Home() {
+
+    const [isModalVisible, setIsModalVisible] = useState(true);
+
+  useEffect(() => {
+
+    setIsModalVisible(true);
+  }, []);
+
+  const handleModalClose = () => {
+    setIsModalVisible(false);
+  };
+
     return (
         <>
         <Header></Header>
         <Hero></Hero>
+
+        {isModalVisible && (
+        <div className="modal-overlay">
+          <div className="modal">
+          <img
+              src="https://www.ze.delivery/_next/image?url=https%3A%2F%2Fcourier-images-web.imgix.net%2Fstatic%2Fimg%2Fsmall-logo.png%3Fauto%3Dcompress%2Cformat%26fit%3Dmax%26w%3D83%26h%3D83%26dpr%3D2%26fm%3Dpng&w=96&q=75"
+              alt="Logo"
+              className="modal-logo"
+            />
+            <p>Você tem 18 anos ou mais?</p>
+            <div className="modal-buttons">
+              <button onClick={handleModalClose}>Não</button>
+              <button onClick={handleModalClose}>Sim</button>
+            </div>
+          </div>
+        </div>
+      )}
+
         <div className="lista-categorias">
                     {CATEGORIAS.map(categoria => 
                         <CategoriaProduto key={categoria.id} texto={categoria.texto} imagem={categoria.imagem}/> )}
