@@ -1,0 +1,28 @@
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+input {
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+button {
+  padding: 10px;
+  width: 100%;
+  max-width: 300px;
+  background-color: rgb(255, 197, 0);
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: black;
+  color: white;
+}
+  
